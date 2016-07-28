@@ -4,6 +4,7 @@ class RidesController < ApplicationController
   def new
     @planets = SwapiApi.new.planet
 
+
   end
 
   def type
@@ -11,14 +12,19 @@ class RidesController < ApplicationController
   end
 
   def show
-    @drop_off = params["drop_off"]
-    @pick_up = params["pick_up"]
-    @driver = SwapiApi.new.get_driver
+
     if @drop_off == @pick_up
-      @ride = type + SwapiApi.new.get_vehicle
+      @transport = type + SwapiApi.new.get_vehicle
     else
-      @ride = type + SwapiApi.new.get_starship
+      @transport = type + SwapiApi.new.get_starship
     end
+
+    @ride = Ride.create(
+      pick_up: params["pick_up"],
+      drop_off: params["drop_off"],
+      driver: SwapiApi.new.get_driver,
+      ride: @transport,
+      ticket_number: Ticket.new.get_ticket)
   end
 
 

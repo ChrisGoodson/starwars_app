@@ -1,4 +1,14 @@
-class Ticket
+class Ride < ApplicationRecord
+
+
+attr_reader :full_price
+# before_create :randomize_ride
+  
+
+#   def randomize_ride
+#     @ticket_number = get_ticket
+
+  # end
 
 
   def get_ticket
@@ -9,6 +19,9 @@ class Ticket
                       list.sample
                        end.join('')
   end
+
+
+
 
 
 end
