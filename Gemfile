@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
+
+gem 'chunky_png', '~> 1.3', '>= 1.3.6'
+gem 'rqrcode', '~> 0.10.1'
 gem 'binding_of_caller'
 gem 'better_errors'
 gem 'swapi'
