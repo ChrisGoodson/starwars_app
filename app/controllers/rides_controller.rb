@@ -13,7 +13,7 @@ class RidesController < ApplicationController
 
   def show
 
-    if @drop_off == @pick_up
+    if params["pick_up"] == params["drop_off"]
       @transport = type + SwapiApi.new.get_vehicle
     else
       @transport = type + SwapiApi.new.get_starship
